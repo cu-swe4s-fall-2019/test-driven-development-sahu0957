@@ -13,8 +13,9 @@ def list_mean(L):
         try:
             s += l
         except TypeError:
-            raise TypeError('Detected nonnumber value in list! Exiting...') 
+            raise TypeError('Detected nonnumber value in list! Exiting...')
     return(s/len(L))
+
 
 def list_stdev(L):
     return None
