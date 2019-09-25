@@ -35,5 +35,16 @@ class TestMathLib(unittest.TestCase):
         e = statistics.mean(L)
         self.assertTrue(math.isclose(r, e))
 
+    def test_list_mean_string_in_list(self):
+        L = []
+        for i in range(100):
+            L.append(random.randint(1,100))
+        L.append('string')
+
+        with self.assertRaises(TypeError) as ex:
+            math_lib.list_mean(L)
+            self.assertEqual('Detected nonnumber value in list! Exiting...')
+
+
 if __name__ == '__main__':
     unittest.main()

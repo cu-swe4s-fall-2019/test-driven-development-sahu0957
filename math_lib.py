@@ -1,3 +1,5 @@
+import sys
+
 
 def list_mean(L):
     if L is None:
@@ -8,8 +10,10 @@ def list_mean(L):
     s = 0
 
     for l in L:
-        s += l
-
+        try:
+            s += l
+        except TypeError:
+            raise TypeError('Detected nonnumber value in list! Exiting...') 
     return(s/len(L))
 
 def list_stdev(L):
