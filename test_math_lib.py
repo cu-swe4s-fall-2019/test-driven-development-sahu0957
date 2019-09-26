@@ -45,6 +45,46 @@ class TestMathLib(unittest.TestCase):
             math_lib.list_mean(L)
             self.assertEqual('Detected nonnumber value in list! Exiting...')
 
+    def test_list_stdev_empty_list(self):
+        r = math_lib.list_stdev([])
+        self.assertEqual(r, None)
+
+    def test_list_stdev_constant(self):
+        r = math_lib.list_stdev([2, 2, 2, 2])
+        self.assertEqual(r, 0)
+
+    def test_list_stdev_variable(self):
+        L = []
+        for i in range(100):
+            for j in range(10):
+                L.append(random.randint(1, 100))
+        r = math_lib.list_stdev(L)
+        self.assertTrue(math.isclose(statistics.stdev(L), r))
+
+    def test_list_stdev_float(self):
+        L = []
+        for i in range(100):
+            for j in range(10):
+                L.append(random.random())
+        r = math_lib.list_stdev(L)
+        self.assertTrue(math.isclose(statistics.stdev(L), r))
+
+    def test_list_stdev_string_in_list(self):
+        L = []
+        for i in range(100):
+            L.append(random.randint(1, 100))
+        L.append('string')
+        with self.assertRaises(TypeError) as ex:
+            math_lib.list_stdev(L)
+            self.assertEqual('Detected nonnumber value in list! Exiting...')
+
+    def test_list_stdev_one_entry(self):
+        L = [1]
+        with self.assertRaises(ZeroDivisionError) as ex:
+            math_lib.list_stdev(L)
+            self.assertEqual("Can't calculate stdev on
+                             single entry! Exiting...")
+
 
 if __name__ == '__main__':
     unittest.main()
