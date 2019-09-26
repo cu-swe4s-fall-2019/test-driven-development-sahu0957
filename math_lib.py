@@ -27,7 +27,7 @@ def list_stdev(L):
     else:
         mean = list_mean(L)
         if len(L) == 1:
-            raise ZeroDivisionError("Can't calculate stdev on single
+            raise ZeroDivisionError("Can't calculate stdev on single \
                                     entry! Exiting...")
         stdev = math.sqrt(sum([(mean-x)**2 for x in L]) / (len(L) - 1))
         return stdev

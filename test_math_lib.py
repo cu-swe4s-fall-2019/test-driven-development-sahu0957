@@ -82,8 +82,8 @@ class TestMathLib(unittest.TestCase):
         L = [1]
         with self.assertRaises(ZeroDivisionError) as ex:
             math_lib.list_stdev(L)
-            self.assertEqual("Can't calculate stdev on
-                             single entry! Exiting...")
+            self.assertEqual('Cant calculate stdev on \
+                             single entry! Exiting...')
 
 
 if __name__ == '__main__':
