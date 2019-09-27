@@ -10,11 +10,11 @@ before_install:
     - conda activate test
     - conda install -y pycodestyle
     - conda install --yes python=3.6
-      
+    - wget -q https://raw.githubusercontent.com/ryanlayer/ssshtest/master/ssshtest  
+    - . ssshtest
 script:
     - python test_math_lib.py
     - pycodestyle test_math_lib.py
     - pycodestyle math_lib.py
-    - bash test_get_data.sh
     - python test_data_viz.py
     - pycodestyle test_data_viz.py 
