@@ -41,14 +41,34 @@ class TestDataViz(unittest.TestCase):
         data_viz.histogram(L, 'histogram.png')
         self.assertTrue(path.exists("histogram.png"))
 
+    def test_data_viz_empty_list_combo(self):
+        L = []
+        r = data_viz.boxplot(L, 'combo.png')
+        self.assertEqual(r, None)
+
+    def test_data_viz_constant_combo(self):
+        L = [1,2,3,4,5]
+        data_viz.combo(L, 'combo.png')
+        self.assertTrue(path.exists("combo.png"))
+   
+    def test_data_viz_nonnumber_combo(self):
+        L = ['foo', 'bar']
+        with self.assertRaises(TypeError) as ex:
+            data_viz.combo(L, 'combo.png')
+
+    def test_data_viz_float_combo(self):
+        L = [1.0, 2.2, 5.1, 3.8, 4.9]
+        data_viz.combo(L, 'combo.png')
+        self.assertTrue(path.exists("combo.png"))
 
     def tearDown(self):
         if path.exists("boxplot.png"):
             os.remove("boxplot.png")
         if path.exists("histogram.png"):
-            print("hi there")
-            #os.remove("histogram.png")
+            os.remove("histogram.png")
         if path.exists("combo.png"):
-            os.remove("combo.pngu")
+            print("hi there")
+            os.remove("combo.png")
+
 if __name__ == '__main__':
     unittest.main()
