@@ -14,4 +14,5 @@ before_install:
 script:
     - python test_math_lib.py
     - pycodestyle test_math_lib.py
-    - pycodestyle math_lib.py  
+    - pycodestyle math_lib.py
+    - bash test_get_data.sh  
