@@ -7,6 +7,10 @@ import math
 
 class TestMathLib(unittest.TestCase):
 
+    # These will test the robustness of the script math_lib
+    # through testing empty inputs, nonnumber entries,
+    # random data frames, and constant data frames with
+    # known means and standard deviations
     def test_list_mean_empty_list(self):
         r = math_lib.list_mean([])
         self.assertEqual(r, None)

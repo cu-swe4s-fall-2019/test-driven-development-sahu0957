@@ -10,6 +10,7 @@ before_install:
     - conda activate test
     - conda install -y pycodestyle
     - conda install --yes python=3.6
+    - conda install matplotlib  
     - wget -q https://raw.githubusercontent.com/ryanlayer/ssshtest/master/ssshtest  
     - . ssshtest
 script:
@@ -17,4 +18,5 @@ script:
     - pycodestyle test_math_lib.py
     - pycodestyle math_lib.py
     - python test_data_viz.py
-    - pycodestyle test_data_viz.py 
+    - bash test_viz.sh
+    - bash test_get_data.sh 
