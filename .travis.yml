@@ -19,4 +19,3 @@ script:
     - pycodestyle math_lib.py
     - python test_data_viz.py
     - bash test_viz.sh
-    - bash test_get_data.sh 
