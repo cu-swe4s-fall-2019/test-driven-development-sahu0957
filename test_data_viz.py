@@ -68,7 +68,6 @@ class TestDataViz(unittest.TestCase):
         if path.exists("histogram.png"):
             os.remove("histogram.png")
         if path.exists("combo.png"):
-            print("hi there")
             os.remove("combo.png")
 
 
