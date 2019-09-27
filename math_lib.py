@@ -4,6 +4,7 @@ import argparse
 
 
 def list_mean(L):
+    # Return None if list is empty, or is none
     if L is None:
         return None
     if len(L) == 0:
@@ -15,11 +16,13 @@ def list_mean(L):
         try:
             s += l
         except TypeError:
+            # Nonnumber entries will throw an error
             raise TypeError('Detected nonnumber value in list! Exiting...')
     return(s/len(L))
 
 
 def list_stdev(L):
+    # Return None if list is empty, or is None
     if L is None:
         return None
     if len(L) == 0:
@@ -27,6 +30,8 @@ def list_stdev(L):
     else:
         mean = list_mean(L)
         if len(L) == 1:
+            # Standard Deviation calculations require at
+            # least 2 numbers
             raise ZeroDivisionError("Can't calculate stdev on single \
                                     entry! Exiting...")
         stdev = math.sqrt(sum([(mean-x)**2 for x in L]) / (len(L) - 1))
