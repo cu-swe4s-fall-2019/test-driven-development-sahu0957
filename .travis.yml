@@ -15,4 +15,6 @@ script:
     - python test_math_lib.py
     - pycodestyle test_math_lib.py
     - pycodestyle math_lib.py
-    - bash test_get_data.sh  
+    - bash test_get_data.sh
+    - python test_data_viz.py
+    - pycodestyle test_data_viz.py 
