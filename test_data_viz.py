@@ -4,6 +4,7 @@ import random
 import os
 from os import path
 
+
 class TestDataViz(unittest.TestCase):
 
     def test_data_viz_empty_list_boxplot(self):
@@ -12,10 +13,10 @@ class TestDataViz(unittest.TestCase):
         self.assertEqual(r, None)
 
     def test_data_viz_constant_boxplot(self):
-        L = [1,2,3,4,5]
+        L = [1, 2, 3, 4, 5]
         data_viz.boxplot(L, 'boxplot.png')
         self.assertTrue(path.exists("boxplot.png"))
-   
+
     def test_data_viz_nonnumber_boxplot(self):
         L = ['foo', 'bar']
         with self.assertRaises(TypeError) as ex:
@@ -32,10 +33,10 @@ class TestDataViz(unittest.TestCase):
         self.assertEqual(r, None)
 
     def test_data_viz_constant_histogram(self):
-        L = [1,2,3,4,5]
+        L = [1, 2, 3, 4, 5]
         data_viz.histogram(L, 'histogram.png')
         self.assertTrue(path.exists("histogram.png"))
-   
+
     def test_data_viz_float_histogram(self):
         L = [1.0, 2.2, 5.1, 3.8, 4.9]
         data_viz.histogram(L, 'histogram.png')
@@ -47,10 +48,10 @@ class TestDataViz(unittest.TestCase):
         self.assertEqual(r, None)
 
     def test_data_viz_constant_combo(self):
-        L = [1,2,3,4,5]
+        L = [1, 2, 3, 4, 5]
         data_viz.combo(L, 'combo.png')
         self.assertTrue(path.exists("combo.png"))
-   
+
     def test_data_viz_nonnumber_combo(self):
         L = ['foo', 'bar']
         with self.assertRaises(TypeError) as ex:
@@ -69,6 +70,7 @@ class TestDataViz(unittest.TestCase):
         if path.exists("combo.png"):
             print("hi there")
             os.remove("combo.png")
+
 
 if __name__ == '__main__':
     unittest.main()
